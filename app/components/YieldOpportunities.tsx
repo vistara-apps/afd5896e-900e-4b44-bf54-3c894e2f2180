@@ -72,7 +72,9 @@ const yieldOpportunities = [
   },
 ];
 
-const riskColors = {
+type RiskLevel = 'Very Low' | 'Low' | 'Medium' | 'High';
+
+const riskColors: Record<RiskLevel, string> = {
   'Very Low': 'bg-green-500/20 text-green-400',
   'Low': 'bg-blue-500/20 text-blue-400',
   'Medium': 'bg-yellow-500/20 text-yellow-400',
@@ -161,7 +163,7 @@ export function YieldOpportunities() {
                   <p className="text-white/60 text-sm">{opportunity.poolName}</p>
                 </div>
               </div>
-              <div className={`px-2 py-1 rounded-full text-xs font-medium ${riskColors[opportunity.risk]}`}>
+              <div className={`px-2 py-1 rounded-full text-xs font-medium ${riskColors[opportunity.risk as RiskLevel]}`}>
                 {opportunity.risk}
               </div>
             </div>
